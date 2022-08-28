@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useUser from "../../hooks/useUser";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navabar";
+import Wallet from "../../components/Wallet";
+
 
 function Home() {
-  let navigate = useNavigate();
 
+  let navigate = useNavigate();
   const { isLogged } = useUser();
 
   useEffect(() => {
@@ -14,9 +16,13 @@ function Home() {
     }
   }, [isLogged]);
 
+  //Dispatch useEffect
+
+
   return (
     <>
       <Navbar />
+      <Wallet />
     </>
   );
 }

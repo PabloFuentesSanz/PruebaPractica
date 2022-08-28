@@ -4,8 +4,12 @@ import { loginWithEmail } from "../../firebase/firebaseConf";
 import { useToast } from "@chakra-ui/react";
 import useUser from "../../hooks/useUser";
 import {useNavigate} from "react-router-dom"
+import { getUser} from "../../features/user";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
+  const dispatch = useDispatch();
+
   const toast = useToast();
   const { isLogged, login } = useUser();
   let navigate = useNavigate();
@@ -18,9 +22,10 @@ const Login = () => {
           title: "Succesful Login",
           description: "Enjoy the experience",
           status: "success",
-          duration: 6000,
+          duration: 3000,
           isClosable: true,
         });
+        dispatch(getUser(user.email));
         login(user);
       })
       .catch((error) => {
@@ -28,7 +33,7 @@ const Login = () => {
           title: "ERROR",
           description: "Incorrect email or password",
           status: "error",
-          duration: 6000,
+          duration: 3000,
           isClosable: true,
         });
       });

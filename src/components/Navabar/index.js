@@ -15,10 +15,14 @@ import {
 } from "@chakra-ui/react";
 import useUser from "../../hooks/useUser";
 import { FaBitcoin } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/user";
 
 const CFaBitcoin = chakra(FaBitcoin);
 
 export default function Navbar() {
+  const user = useSelector(selectUser);
+
   const { logout } = useUser();
   const handleLogOut = () => {
     logout();
@@ -55,7 +59,7 @@ export default function Navbar() {
                     />
                   </Center>
                   <Center mb="3">
-                    <p>Username</p>
+                    <p>{user.userName.toUpperCase()}</p>
                   </Center>
                   <MenuDivider />
                   <MenuItem onClick={handleLogOut}>Logout</MenuItem>

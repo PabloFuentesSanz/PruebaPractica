@@ -14,11 +14,9 @@ import {
   Stack,
 } from "@chakra-ui/react";
 
-//React Icons
 import { FaUserAlt, FaLock, FaBitcoin } from "react-icons/fa";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
-//Define icons in chakra
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 const CFaBitcoin = chakra(FaBitcoin);
@@ -26,13 +24,12 @@ const CAiFillEye = chakra(AiFillEye);
 const CAiFillEyeInvisible = chakra(AiFillEyeInvisible);
 
 function AuthForm(props) {
-  //Hooks
   const [showPassword, setShowPassword] = useState(false);
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-  //Props
+
   const login = props.type === "login";
   let switchAuthLink;
 

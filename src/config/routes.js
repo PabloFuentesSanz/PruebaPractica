@@ -6,17 +6,14 @@ const routes = [
   {
     path: "/",
     component: Login,
-    isPrivate: false,
   },
   {
     path: "/register",
     component: Register,
-    isPrivate: false,
   },
   {
     path: "/home",
     component: Home,
-    isPrivate: true,
   },
 ];
 
