@@ -29,7 +29,7 @@ function TableTransactions() {
   }, [user]);
 
   return (
-    <Stack width="90vw" height="50vh">
+    <Stack width="90vw" minH="50vh">
       <TableContainer>
         <Table variant="simple">
           <Thead>
