@@ -39,7 +39,7 @@ function BuyModal() {
       dispatch(getUser(user.email));
 
       toast({
-        description: "Deposit successfully",
+        description: "Successful deposit",
         status: "success",
         duration: 3000,
         isClosable: true,
@@ -79,6 +79,7 @@ function BuyModal() {
                   placeholder="USD"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
+                  type="number"
                 />
               </Stack>
             </Stack>

@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const User = require("../models/User");
+const Transaction = require("../models/Transaction");
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -43,6 +44,7 @@ app.put("/deposit/:email", async (req, res) => {
     { new: true }
   );
   user.save();
+  transaction("you", user.publicKey, "Deposit", amount);
   res.json(user);
 });
 
@@ -63,8 +65,34 @@ app.put("/send/:email", async (req, res) => {
     { new: true }
   );
   userRec.save();
+
+  transaction(userSend.publicKey, userRec.publicKey, "Transfer", amount);
   res.json(userRec);
 });
+
+//Transaction
+
+const transaction = async (from, to, type, amount) => {
+  const date = new Date();
+  const dateValue =
+    date.getFullYear() + "/" + (date.getMonth()+1) + "/" + date.getDate();
+  const trans = new Transaction({
+    from: from,
+    to: to,
+    type: type,
+    amount: amount,
+    date: dateValue,
+  });
+  await trans.save();
+};
+
+//Get transactions by user
+app.get("/transactions/:publicKey", async (req, res)=> {
+  const publicKey = req.params.publicKey;
+  const trans = await Transaction.find({$or: [{from: publicKey} ,{to: publicKey} ]})
+  res.json(trans);
+
+})
 
 //Initialize Server
 app.listen(port, () => {

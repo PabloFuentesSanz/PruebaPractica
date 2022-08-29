@@ -16,15 +16,18 @@ import {
 import useUser from "../../hooks/useUser";
 import { FaBitcoin } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { selectUser } from "../../features/user";
+import { reset, selectUser } from "../../features/user";
+import { useDispatch } from "react-redux";
 
 const CFaBitcoin = chakra(FaBitcoin);
 
 export default function Navbar() {
   const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   const { logout } = useUser();
   const handleLogOut = () => {
+    dispatch(reset());
     logout();
   };
   return (
@@ -46,14 +49,12 @@ export default function Navbar() {
                 >
                   <Avatar
                     size={"sm"}
-                    src={"https://avatars.dicebear.com/api/male/username.svg"}
                   />
                 </MenuButton>
                 <MenuList alignItems={"center"}>
                   <Center>
                     <Avatar
                       size={"2xl"}
-                      src={"https://avatars.dicebear.com/api/male/username.svg"}
                       mb="3"
                       mt="3"
                     />

@@ -11,11 +11,9 @@ const initialState = {
 export const getUser = createAsyncThunk(
     'counter/fetchCount',
     async (mail) => {
-        console.log("mail", mail)
       const response =  await axios.get(
         `http://localhost:5000/currentUser/${mail}`
       );
-      console.log(response.data)
       return response.data;
     }
   );
@@ -24,7 +22,11 @@ export const getUser = createAsyncThunk(
 export const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    reset(state){
+      return initialState;
+    }
+  },
   extraReducers(builder) {
     builder
       .addCase(getUser.pending, (state) => {
@@ -44,5 +46,6 @@ export const userSlice = createSlice({
   },
 });
 export const selectUser = (state) => state.user;
+export const { reset } = userSlice.actions
 
 export default userSlice.reducer;

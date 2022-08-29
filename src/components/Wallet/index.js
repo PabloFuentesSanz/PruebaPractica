@@ -13,6 +13,7 @@ import {
 import { FaEthereum } from "react-icons/fa";
 import PublicKey from "../PublicKey";
 import BuyModal from "../BuyModal";
+import TableTransactions from "../TableTransactions";
 import SendModal from "../SendModal";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/user";
@@ -31,7 +32,7 @@ function Wallet() {
           <Flex
             flexDirection="column"
             width="100wh"
-            height="74.8vh"
+            minH={{ base: "74.8vh", md: "78vh" }}
             justifyContent="center"
             alignItems="center"
           >
@@ -55,12 +56,13 @@ function Wallet() {
           <Flex
             flexDirection="column"
             width="100wh"
-            height="74.8vh"
+            minH={{ base: "74.8vh", md: "78vh" }}
             justifyContent="center"
             alignItems="center"
           >
             <Stack spacing="1" justifyContent="center" alignItems="center">
-              <Text fontSize="5xl">Movimientos </Text>
+              <Text fontSize="5xl">Transactions</Text>
+              <TableTransactions/>
             </Stack>
           </Flex>
         </TabPanel>

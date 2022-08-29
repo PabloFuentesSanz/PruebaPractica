@@ -13,6 +13,7 @@ import {
   ModalCloseButton,
   useDisclosure,
   Input,
+  useToast
 } from "@chakra-ui/react";
 import { BsArrowUpRight } from "react-icons/bs";
 import axios from "axios";
@@ -29,18 +30,38 @@ function SendModal() {
   const [amount, setAmount] = useState(0);
   const [publicKey, setPublicKey] = useState("");
   const dispatch = useDispatch();
+  const toast = useToast();
 
   const sendMoney = async () => {
+
     if(amount > 0 && publicKey != ""){
-      console.log(publicKey)
-      await axios.put(`http://localhost:5000/send/${user.email}`, {
-        amount: amount,
-        publicKey: publicKey,
-      });
-      dispatch(getUser(user.email));
-
+      if(amount <= user.amount){
+        await axios.put(`http://localhost:5000/send/${user.email}`, {
+          amount: amount,
+          publicKey: publicKey,
+        });
+        dispatch(getUser(user.email));
+        toast({
+          description: "Successful transfer ",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      }else{
+        toast({
+          description: "Do not have enough liquidity",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
     }else{
-
+      toast({
+        description: "Required fields must be filled",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
     }
   };
 
@@ -66,6 +87,7 @@ function SendModal() {
               <Input
                 placeholder="USD"
                 onChange={(e) => setAmount(e.target.value)}
+                type="number"
               />
             </Stack>
           </ModalBody>
