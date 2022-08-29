@@ -10,6 +10,10 @@
 * NodeJS + Express + Mongoose --> API REST
 * MongoDB Cloud --> Cloud DB
 
+
+
+https://user-images.githubusercontent.com/51823158/187201996-25453ace-53dc-4a99-a207-2f687bcfca9e.mp4
+
 ![image](https://user-images.githubusercontent.com/51823158/187197660-bf84dbd6-71af-4dcd-866f-58795542bfa7.png)
 
 ![image](https://user-images.githubusercontent.com/51823158/187197723-e32d9cf7-c319-4a17-8384-7e8a9516f1dc.png)
