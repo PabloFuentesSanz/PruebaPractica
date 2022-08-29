@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import routes from "./config/routes";
 import { ChakraProvider } from "@chakra-ui/react";
 
-import {UserContextProvider} from "./context/UserContext";
+import { UserContextProvider } from "./context/UserContext";
 
 function App() {
   return (
@@ -17,10 +17,9 @@ function App() {
                 exact
                 key={route.path}
                 path={route.path}
-                element={<route.component /> }
+                element={<route.component />}
               />
-            ))
-            }
+            ))}
           </Routes>
         </Router>
       </UserContextProvider>

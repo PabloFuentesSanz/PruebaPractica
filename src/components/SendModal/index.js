@@ -13,7 +13,7 @@ import {
   ModalCloseButton,
   useDisclosure,
   Input,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
 import { BsArrowUpRight } from "react-icons/bs";
 import axios from "axios";
@@ -33,9 +33,8 @@ function SendModal() {
   const toast = useToast();
 
   const sendMoney = async () => {
-
-    if(amount > 0 && publicKey != ""){
-      if(amount <= user.amount){
+    if (amount > 0 && publicKey != "") {
+      if (amount <= user.amount) {
         await axios.put(`http://localhost:5000/send/${user.email}`, {
           amount: amount,
           publicKey: publicKey,
@@ -47,7 +46,7 @@ function SendModal() {
           duration: 3000,
           isClosable: true,
         });
-      }else{
+      } else {
         toast({
           description: "Do not have enough liquidity",
           status: "error",
@@ -55,7 +54,7 @@ function SendModal() {
           isClosable: true,
         });
       }
-    }else{
+    } else {
       toast({
         description: "Required fields must be filled",
         status: "error",
@@ -92,7 +91,9 @@ function SendModal() {
             </Stack>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="orange" onClick={sendMoney}>Send</Button>
+            <Button colorScheme="orange" onClick={sendMoney}>
+              Send
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

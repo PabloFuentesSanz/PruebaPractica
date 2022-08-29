@@ -71,7 +71,7 @@ function BuyModal() {
             <Stack spacing={8} direction="row">
               <Stack>
                 <Text>ETH</Text>
-                <Input placeholder="ETH" value={amount * 0.000678} disabled/>
+                <Input placeholder="ETH" value={amount * 0.000678} disabled />
               </Stack>
               <Stack>
                 <Text>USD</Text>

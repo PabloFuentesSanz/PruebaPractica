@@ -1,10 +1,10 @@
-import React, {useEffect } from "react";
+import React, { useEffect } from "react";
 import AuthForm from "../../components/AuthForm";
 import { loginWithEmail } from "../../firebase/firebaseConf";
 import { useToast } from "@chakra-ui/react";
 import useUser from "../../hooks/useUser";
-import {useNavigate} from "react-router-dom"
-import { getUser} from "../../features/user";
+import { useNavigate } from "react-router-dom";
+import { getUser } from "../../features/user";
 import { useDispatch } from "react-redux";
 
 const Login = () => {

@@ -1,14 +1,16 @@
 # Prueba Técnica 
+To test the app in local run 'npm run start' and 'node .\src\api\server.js' 
 
+Some dependencies, techs and utilities:
 * React 
 * Chakra UI
 * React-icons
 * React-router
-* Redux + Redux persist --> guardar el estado del usuario 
-* Context + SessionStorage --> comprobar estado de sesión del usuario
-* Firebase --> registro e inicio de sesión
-* NodeJS + Express + Mongoose --> API REST
-* MongoDB Cloud --> Cloud DB
+* Redux + Redux persist
+* Context + SessionStorage
+* NodeJS + Express + Mongoose 
+* Firebase
+* MongoDB Cloud
 
 
 

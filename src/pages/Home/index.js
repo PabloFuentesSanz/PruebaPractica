@@ -4,9 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navabar";
 import Wallet from "../../components/Wallet";
 
-
 function Home() {
-
   let navigate = useNavigate();
   const { isLogged } = useUser();
 
@@ -15,9 +13,6 @@ function Home() {
       navigate("/");
     }
   }, [isLogged]);
-
-  //Dispatch useEffect
-
 
   return (
     <>

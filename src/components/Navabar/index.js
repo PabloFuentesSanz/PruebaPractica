@@ -47,17 +47,11 @@ export default function Navbar() {
                   cursor={"pointer"}
                   minW={0}
                 >
-                  <Avatar
-                    size={"sm"}
-                  />
+                  <Avatar size={"sm"} />
                 </MenuButton>
                 <MenuList alignItems={"center"}>
                   <Center>
-                    <Avatar
-                      size={"2xl"}
-                      mb="3"
-                      mt="3"
-                    />
+                    <Avatar size={"2xl"} mb="3" mt="3" />
                   </Center>
                   <Center mb="3">
                     <p>{user.userName.toUpperCase()}</p>

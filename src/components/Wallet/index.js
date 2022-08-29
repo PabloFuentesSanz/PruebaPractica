@@ -62,7 +62,7 @@ function Wallet() {
           >
             <Stack spacing="1" justifyContent="center" alignItems="center">
               <Text fontSize="5xl">Transactions</Text>
-              <TableTransactions/>
+              <TableTransactions />
             </Stack>
           </Flex>
         </TabPanel>
