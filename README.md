@@ -1,13 +1,13 @@
 # Original NFT Whitelabel marketplace platform
 
-● Whitelabeling solution to enable customize easily site for INS customers
-● High traffic drop management, based on scheduled drop timeframes
-● Primary market drops, with scheduled time
-● Payment with crypto and fiat
-● Custodial wallet
-● KYC and AML
+* Whitelabeling solution to enable customize easily site for INS customers
+* High traffic drop management, based on scheduled drop timeframes
+* Primary market drops, with scheduled time
+* Payment with crypto and fiat
+* Custodial wallet
+* KYC and AML
 
-To test the app in local run 'npm run start' and 'node .\src\api\server.js' 
+To test the app in local run `npm run start` and `node .\src\api\server.js` 
 
 Some dependencies, techs and utilities:
 * React 
